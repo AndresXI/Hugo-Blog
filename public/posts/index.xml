@@ -1,0 +1,391 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Posts on Andres Alcocer</title>
+		<link>http://andresio.com/posts/</link>
+		<description>Recent content in Posts on Andres Alcocer</description>
+		<generator>Hugo -- gohugo.io</generator>
+		<language>en-us</language>
+		<copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+		<lastBuildDate>Thu, 24 Jan 2019 19:51:07 +0000</lastBuildDate>
+		<atom:link href="http://andresio.com/posts/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>CORS Errors</title>
+			<link>http://andresio.com/posts/cors-errors/</link>
+			<pubDate>Thu, 24 Jan 2019 19:51:07 +0000</pubDate>
+			
+			<guid>http://andresio.com/posts/cors-errors/</guid>
+			<description>Cross-Origin Resource Sharing (CORS) is a security mechanism that is used by the browser to protect itself from API requests created from a different source (a source hosted on another server). For example say you&amp;rsquo;re working on a web application that uses Spotify&amp;rsquo;s API to request some information about an artist, here you have two different origins (sources) trying to exchange some information (your web app and Spotify&amp;rsquo;s servers). In order for this process to be successful the browser needs to know if it is safe to do so, here is where CORS comes in.</description>
+			<content type="html"><![CDATA[
+
+<p>Cross-Origin Resource Sharing (CORS) is a security mechanism that is used by the browser to protect itself from API requests created from a different source (a source hosted on another server). For example say you&rsquo;re working on a web application that uses Spotify&rsquo;s API to request some information about an artist, here you have two different origins (sources) trying to exchange some information (your web app and Spotify&rsquo;s servers). In order for this process to be successful the browser needs to know if it is safe to do so, here is where CORS comes in. If you dont&rsquo; set any additional headers on your request to let the browser know you&rsquo;re a trusted source you could receive the following error:</p>
+
+<p><img src="https://raw.githubusercontent.com/AndresXI/Hexo-Blog/master/cors-error.png"></p>
+
+<h1 id="setting-headers">Setting Headers</h1>
+
+<p>To fix CORS errors you have to let the browser know you can be trusted. Every time you make a request to a different endpoint you need to add some additional information in your request, you add this information in the request headers. Headers are used to describe request and responses (there could be another post solely devoted to Headers). Headers are commonly set in the server but nowadays they can be set in the client. With the CORS mechanism new HTTP headers were added to the list:
+- Access-Control-Allow-Origin
+- Access-Control-Allow-Credentials
+- Access-Control-Allow-Headers
+- Access-Control-Allow-Methods
+- Access-Control-Expose-Headers
+- Access-Control-Max-Age
+- Access-Control-Request-Headers
+- Access-Control-Request-Method
+- Origin</p>
+
+<p>ALl of them are important but the one we are concerned with is the following header:
+- Access-Control-Allow-Origin</p>
+
+<p>this is what&rsquo;s giving us the error shown above. Implementing the request headers to bypass the CORS mechanism depends on the language and framework of your backend. <a href="https://enable-cors.org/server.html">Here</a> you can choose the implementation for a specific platform. As a javaScript developer you probably have worked (or will) with NodeJs. There is  <a href="https://github.com/expressjs/cors">package</a>  you can install to enable CORS with express with added configurations. Using this package is simple, with this set up you can enable all CORS requests:</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;express&#39;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">cors</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;cors&#39;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">express</span><span class="p">();</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">cors</span><span class="p">());</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/products/:id&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">({</span><span class="nx">msg</span><span class="o">:</span> <span class="s1">&#39;This is CORS-enabled for all origins!&#39;</span><span class="p">})</span>
+<span class="p">});</span>
+</code></pre></div>
+<p>To enable CORS Pre-flight use the following set up:</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;express&#39;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">cors</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;cors&#39;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">express</span><span class="p">();</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">options</span><span class="p">(</span><span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="nx">cors</span><span class="p">());</span> <span class="c1">// include before other routes
+</span></code></pre></div>
+<h1 id="conclusion">Conclusion</h1>
+
+<p>Although for the developer this seems to be a bit of extra work but for the user this actually helpful. We can reduce risky behavior (like downloading documents from external origins) and therefore providing a more secure and accessible browsing experience. CORS should be understood by anyone who uses the web on a daily basis.</p>
+]]></content>
+		</item>
+		
+		<item>
+			<title>Model View Controller</title>
+			<link>http://andresio.com/posts/model-view-controller/</link>
+			<pubDate>Tue, 08 Jan 2019 22:08:31 +0000</pubDate>
+			
+			<guid>http://andresio.com/posts/model-view-controller/</guid>
+			<description>One of the most well known design pattern is the Model View Controller (MCV). This design pattern is concerned with the separation of logic, data models, and presentation. Making your code more readable and maintainable. Design patterns are useful in the sense that they reduce complexity by providing ready-made abstractions. They also reduce errors by providing details of common solutions. It is always useful to have a few design patterns in your toolbox.</description>
+			<content type="html"><![CDATA[<p>One of the most well known design pattern is the Model View Controller (MCV). This design pattern is concerned with the separation of logic, data models, and presentation. Making your code more readable and maintainable. Design patterns are useful in the sense that they reduce complexity by providing ready-made abstractions. They also reduce errors by providing details of common solutions. It is always useful to have a few design patterns in your toolbox.</p>
+
+<p><img src="https://raw.githubusercontent.com/AndresXI/Hexo-Blog/master/MCV2.png"></p>
+
+<ul>
+<li><p>Model
+The model is the piece of your code that is responsible for representing the data in your code and allowing you to work with your data. It contains data-related logic (saving, fetching, deleting,&hellip;).</p></li>
+
+<li><p>Views
+The view is responsible for rendering html templates to the client. It presents the data to the user in a friendly manner. There should be minimal logic in your views.</p></li>
+
+<li><p>Controller
+The controller exists between the models and the views. It connects your models and your views. It contains the &ldquo;in-between logic&rdquo;. Its sole purpose is to make sure the two can communicate (in both directions). It is usually split across middleware functions.</p></li>
+</ul>
+]]></content>
+		</item>
+		
+		<item>
+			<title>Array Helper Methods in ES6</title>
+			<link>http://andresio.com/posts/array-helper-methods-in-es6/</link>
+			<pubDate>Tue, 04 Dec 2018 21:56:23 +0000</pubDate>
+			
+			<guid>http://andresio.com/posts/array-helper-methods-in-es6/</guid>
+			<description>To become a front end developer means that you must be proficient with javaScript. Especially with manipulation of data. Having worked with multiple API&amp;rsquo;s myself, most of the time the data I get back is an array of javaScript objects. Thankfully ES6 provides us with a few useful and powerful array helper methods. Most of these array helper methods help with iteration over an array.
+forEach The forEach loop is one of the most commonly used array helper methods in ES6.</description>
+			<content type="html"><![CDATA[
+
+<p><strong>T</strong>o become a front end developer means that you must be proficient with javaScript. Especially with manipulation of data. Having worked with multiple API&rsquo;s myself, most of the time the data I get back is an array of javaScript objects. Thankfully ES6 provides us with a few useful and powerful array helper methods. Most of these array helper methods help with iteration over an array.</p>
+
+<hr style="border: .5px dashed gray; width: 50%" />
+
+<h1 id="foreach">forEach</h1>
+
+<p><strong>T</strong>he forEach loop is one of the most commonly used array helper methods in ES6. When we call the forEach method we pass in an anonymous function and this function gets called for every element in the array. This function is commonly reffered to as the irerator fucntion. The argument is usually named after the singular version of the array.</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="k">const</span> <span class="nx">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">];</span> 
+
+<span class="nx">colors</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">color</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// do something here with each element 
+</span><span class="c1"></span>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">color</span><span class="p">);</span> 
+<span class="p">})</span>
+</code></pre></div>
+<p>the above code will print &ldquo;red&rdquo;, &ldquo;blue&rdquo;, &ldquo;green&rdquo; to the console.</p>
+
+<hr style="border: .5px dashed gray; width: 50%" />
+
+<h1 id="map">map</h1>
+
+<p><strong>T</strong>he map method helps to avoid mutating our data by returning a new array. The mutation of data is a bad practice especially when working in a huge application. It is mostly used to render a list of data.</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">cosnt</span> <span class="nx">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">];</span> 
+
+<span class="nx">cosnt</span> <span class="nx">doubled</span> <span class="o">=</span> <span class="nx">numbers</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">number</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// you must return the result to get a new array 
+</span><span class="c1"></span>  <span class="k">return</span> <span class="nx">number</span> <span class="o">*</span> <span class="mi">2</span><span class="p">;</span> 
+<span class="p">});</span> 
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">doubled</span><span class="p">);</span> <span class="c1">// [2, 4, 6]
+</span></code></pre></div>
+<p>if we print the doubled array to the console we will get a new array: [2, 4, 6].</p>
+
+<hr style="border: .5px dashed gray; width: 50%" />
+
+<h1 id="filter">filter</h1>
+
+<p><strong>F</strong>ilter is used to filter items on an array based on a boolean expression.
+If the boolean expresion is true it will be included in the result array if not it will be discarded. Say we only want to grab the action movies from the following array.</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="k">const</span> <span class="nx">movies</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Black Panther&#39;</span><span class="p">,</span> <span class="nx">genre</span><span class="o">:</span> <span class="s1">&#39;Action&#39;</span> <span class="p">},</span>
+  <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;The Notebook&#39;</span><span class="p">,</span> <span class="nx">genre</span><span class="o">:</span> <span class="s1">&#39;Romance&#39;</span> <span class="p">},</span>
+  <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Fight Club&#39;</span><span class="p">,</span> <span class="nx">genre</span><span class="o">:</span> <span class="s1">&#39;Action&#39;</span> <span class="p">}</span>
+<span class="p">]</span>
+
+<span class="k">const</span> <span class="nx">filteredMovies</span> <span class="o">=</span> <span class="nx">movies</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">movie</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// returns true if genre equals &#39;Action&#39;
+</span><span class="c1"></span>  <span class="k">return</span> <span class="nx">moive</span><span class="p">.</span><span class="nx">genre</span> <span class="o">===</span> <span class="s1">&#39;Action&#39;</span><span class="p">;</span> 
+<span class="p">});</span> 
+</code></pre></div>
+<p>our filteredMovies array will now include the Black Panther and Fight Club movies.</p>
+
+<hr style="border: .5px dashed gray; width: 50%" />
+
+<h1 id="find">find</h1>
+
+<p><strong>T</strong>he purpose of the find helper method is to search through an array and look for a particular element in the array. It only returns the first instance.</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="k">const</span> <span class="nx">countries</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="p">{</span><span class="nx">name</span><span class="o">:</span> <span class="s2">&#34;USA&#34;</span><span class="p">},</span>
+  <span class="p">{</span><span class="nx">name</span><span class="o">:</span> <span class="s2">&#34;Mexico&#34;</span><span class="p">},</span>
+  <span class="p">{</span><span class="nx">name</span><span class="o">:</span> <span class="s2">&#34;Canada&#34;</span><span class="p">},</span>
+<span class="p">];</span> 
+
+<span class="nx">countries</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">country</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">country</span><span class="p">.</span><span class="nx">name</span> <span class="o">===</span> <span class="s1">&#39;USA&#39;</span><span class="p">;</span> 
+<span class="p">});</span> 
+
+<span class="c1">// countries will now return: [{name: &#34;USA}] 
+</span></code></pre></div>
+<hr style="border: .5px dashed gray; width: 50%" />
+
+<h1 id="some">some</h1>
+
+<p><strong>S</strong>ome accepts an iterator function that will return true or false for every element in the array. It is similar to the OR operator. If at least one is true than the result will be true.</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="k">const</span> <span class="nx">cars</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="p">{</span><span class="nx">name</span><span class="o">:</span> <span class="s2">&#34;mustang&#34;</span><span class="p">,</span> <span class="nx">color</span><span class="o">:</span> <span class="s2">&#34;red&#34;</span><span class="p">},</span>
+  <span class="p">{</span><span class="nx">name</span><span class="o">:</span> <span class="s2">&#34;BMW&#34;</span><span class="p">,</span> <span class="nx">color</span><span class="o">:</span> <span class="s2">&#34;black&#34;</span><span class="p">},</span>
+  <span class="p">{</span><span class="nx">name</span><span class="o">:</span> <span class="s2">&#34;Acura&#34;</span><span class="p">,</span> <span class="nx">color</span><span class="o">:</span> <span class="s2">&#34;blue&#34;</span><span class="p">}</span>
+<span class="p">];</span> 
+
+<span class="nx">cars</span><span class="p">.</span><span class="nx">some</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">car</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">car</span><span class="p">.</span><span class="nx">color</span> <span class="o">===</span> <span class="s2">&#34;red&#34;</span><span class="p">;</span> 
+<span class="p">});</span> 
+</code></pre></div>
+<p>the iteration will now return true because we do have a sinlge instance of car whose color property is red.</p>
+
+<hr style="border: .5px dashed gray; width: 50%" />
+
+<h1 id="every">every</h1>
+
+<p><strong>E</strong>very is like some, but insted of using the OR operator it uses AND. The iteration will only return true if all of the elements return true. As with our example above</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="k">const</span> <span class="nx">cars</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="p">{</span><span class="nx">name</span><span class="o">:</span> <span class="s2">&#34;mustang&#34;</span><span class="p">,</span> <span class="nx">color</span><span class="o">:</span> <span class="s2">&#34;red&#34;</span><span class="p">},</span>
+  <span class="p">{</span><span class="nx">name</span><span class="o">:</span> <span class="s2">&#34;BMW&#34;</span><span class="p">,</span> <span class="nx">color</span><span class="o">:</span> <span class="s2">&#34;black&#34;</span><span class="p">},</span>
+  <span class="p">{</span><span class="nx">name</span><span class="o">:</span> <span class="s2">&#34;Acura&#34;</span><span class="p">,</span> <span class="nx">color</span><span class="o">:</span> <span class="s2">&#34;blue&#34;</span><span class="p">}</span>
+<span class="p">];</span> 
+
+<span class="nx">cars</span><span class="p">.</span><span class="nx">every</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">car</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">car</span><span class="p">.</span><span class="nx">color</span> <span class="o">===</span> <span class="s2">&#34;red&#34;</span><span class="p">;</span> 
+<span class="p">});</span> 
+</code></pre></div>
+<p>this iteration will now return false because not every car in the our array has a color of red.</p>
+
+<hr style="border: .5px dashed gray; width: 50%" />
+
+<h1 id="reduce">reduce</h1>
+
+<p><strong>R</strong>educe is the most flexible array helper method. All of our previous methods can be implemented using reduce. This method accepts two arguemts, the first one is an initial value (can be any arbitrary value) and the second one is the element in the array. In this example we want to add all of the numbers in an array.</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="k">const</span> <span class="nx">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="p">];</span> 
+
+<span class="nx">numbers</span><span class="p">.</span><span class="nx">reduce</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">sum</span><span class="p">,</span> <span class="nx">number</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">sum</span> <span class="o">+</span> <span class="nx">number</span><span class="p">;</span> 
+<span class="p">},</span> <span class="mi">0</span><span class="p">);</span> <span class="c1">// here is were we initialize our sum variable. sum = 0
+</span></code></pre></div>
+<p>this iterator function will now return a total of 50.</p>
+
+<p><br /></p>
+
+<p>We now have some tools that will help facilitate working with arrays. It&rsquo;s time to put theory into practice!</p>
+]]></content>
+		</item>
+		
+		<item>
+			<title>The Execution Context in JavaScript</title>
+			<link>http://andresio.com/posts/execution-context-in-javascript/</link>
+			<pubDate>Tue, 27 Nov 2018 18:26:27 +0000</pubDate>
+			
+			<guid>http://andresio.com/posts/execution-context-in-javascript/</guid>
+			<description>JavaScript is a dynamic and versatile language after all it can be used both on the frontend and the backend. You can create web apps, server backends, desktop apps, and mobile apps. That&amp;rsquo;s why JavaScript is one of my favorite languages (it&amp;rsquo;s always on the top 3 &amp;#128515;).
+Although javaScript is pretty amazing it is a special breed on its own. JavaScript does not behave like other programming languages (Java, C++, Python, C# etc.</description>
+			<content type="html"><![CDATA[
+
+<p>JavaScript is a dynamic and versatile language after all it can be used both on the frontend and the backend. You can create web apps, server backends, desktop apps, and mobile apps. That&rsquo;s why JavaScript is one of my favorite languages (it&rsquo;s always on the top 3 &#128515;).</p>
+
+<p>Although javaScript is pretty amazing it is a special breed on its own. JavaScript does not behave like other programming languages (Java, C++, Python, C# etc.). It is wierd. Like really weird. Well, we do have to understand that when we run javaScript code we run it on a widow in the browser. So what happens when we start executing code with javaScript? say hello to&hellip;
+<br /></p>
+
+<h2 id="the-global-execution-context">The Global Execution Context</h2>
+
+<p>Whenever code is run by javaScript at the global level (meaning not inside a function) it is run inside an execution context. It is basically a wrapper that the javaScript engine creates to wrap your code into an execution context. When we look at a program what we are actually looking at is an execution context being created and run.</p>
+
+<p>This global execution context is our base execution context, it is accessible everywhere inside our code. So what does it do? First we have to understand that is it created by the javaScript engine, we never write any code to create it. It is part of the Javascript language. It creates two things for us:</p>
+
+<ul>
+<li><p>A global Object: A collection of value name pairs. It is always part of the window. Each window has its own execution context.</p></li>
+
+<li><p>The keyword &lsquo;this&rsquo;: A special keyword that has been confusing developers since the creation of the universe</p></li>
+</ul>
+
+<p>Here we have a window open in the browser with an empty javaScript file and when we type window into the console we get a window object with a bunch of variables and functions:</p>
+
+<p><img src="https://raw.githubusercontent.com/AndresXI/Hexo-Blog/master/window-1.png"></p>
+
+<p>similarly when we type the keyword &lsquo;this&rsquo; into the console we get:
+<img src="https://raw.githubusercontent.com/AndresXI/Hexo-Blog/master/window-2.png"></p>
+
+<p><br >
+Yes folks, the window object and the keyword &lsquo;this&rsquo; are essentially the same thing&hellip;weird huh? But this is only true at the global level. In javaScript when we create variables and functions (at the global level) they get attached to the global object aka the window object or &lsquo;this&rsquo;. Again this is only happening in the global execution context, yes there can many execution contexts (that on its own can be another post!). Say we create a function and a variable at the global level in a javaScript file</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript">  <span class="kd">var</span> <span class="nx">allDogs</span> <span class="o">=</span> <span class="mi">23</span><span class="p">;</span> 
+
+  <span class="kd">function</span> <span class="nx">allDogsSay</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="err">&#34;</span><span class="nx">Woof</span><span class="p">,</span> <span class="nx">Woof</span><span class="o">!</span><span class="p">);</span> 
+  <span class="p">}</span>
+</code></pre></div>
+<p>now when we type window into the console we will find our variable and function inside the window object and they will live there for the rest of their lives without any freedom whatsoever. Poor things&hellip;
+ <img src="https://raw.githubusercontent.com/AndresXI/Hexo-Blog/master/window-3.png"></p>
+
+<p><br >
+ ## Main takeaway
+ The main point to takeaway is that before we write any code in javaScript we already have an object that&rsquo;s created, the window object. This is the javaScript engine working behind the scenes. When most people start to learn javaScript they don&rsquo;t pay attention to what&rsquo;s happening behind the scenes they are more concerned with syntax of the language (as it was the case with me). If you feel comfortable working with javaScript I recommend you start learning how javaScript works under the hood and for that my friends I recommend this course on Udemy: <a href="https://www.udemy.com/understand-javascript/">JavaScript: Understanding the Weird Parts</a>. See you guys next time and go hack something. Now!</p>
+]]></content>
+		</item>
+		
+		<item>
+			<title>BEM Architecture in CSS</title>
+			<link>http://andresio.com/posts/bem-architecture-in-css/</link>
+			<pubDate>Sun, 18 Nov 2018 16:53:54 +0000</pubDate>
+			
+			<guid>http://andresio.com/posts/bem-architecture-in-css/</guid>
+			<description>BEM Notation When you first start to lean CSS, how you organize your code is usually not one of your main priorities, but as you get more comfortable with CSS and start working on big projects you will need a paradigm to organize your styles. There are plenty of paradigms out there but one of my favorites is the BEM (Block, Elements and Modifiers) notation. Is it a very intuitive methodology that keeps your code organized and maintainable.</description>
+			<content type="html"><![CDATA[
+
+<h1 id="bem-notation">BEM Notation</h1>
+
+<p>When you first start to lean CSS, how you organize your code is usually not one of your main priorities, but as you get more comfortable with CSS and start working on big projects you will need a paradigm to organize your styles. There are plenty of paradigms out there but one of my favorites is the BEM (Block, Elements and Modifiers) notation. Is it a very intuitive methodology that keeps your code organized and maintainable. Ok so how does it work?</p>
+
+<h2 id="the-basics">The Basics</h2>
+
+<p>In all its glory, the Block, Elements, and Modifiers notation is just a naming convention. Say for example when you create a form component that has an image, a description, and a button the block would be named .form, it must be meaningful on its own. Then any sections within the form block would be the elemets. In our example that would be the description, image, and button. We name it by using two underscores. Finally, when you want to change the appeareace or behavior of an element you use a modifier and connect them with two dashses, putting it all together it will look like this:  .form__button&ndash;dark
+<br/>
+<img src="https://raw.githubusercontent.com/AndresXI/Hexo-Blog/master/form.png"></p>
+<div class="highlight"><pre class="chroma"><code class="language-css" data-lang="css"><span class="c">/* CSS */</span>
+<span class="p">.</span><span class="nc">form</span> <span class="p">{}</span>
+<span class="p">.</span><span class="nc">form__image</span> <span class="p">{}</span>
+<span class="p">.</span><span class="nc">form__description</span> <span class="p">{}</span>
+<span class="p">.</span><span class="nc">form__button--dark</span> <span class="p">{}</span>
+<span class="p">.</span><span class="nc">form__button--normal</span> <span class="p">{}</span></code></pre></div>
+<p><br/></p>
+
+<h2 id="pros-cons">Pros &amp; cons</h2>
+
+<p>BEM adds a modular structure to your CSS project. Because of its specific naming scheme, we greatly reduce naming conflicts as our project grows. It also provides a connection beetween your CSS and HTML. With this connection you will spend less time searching for specific components.</p>
+
+<p>One of the negatives of BEM is that we usually end up with very long names, specially when nesting of elements is deep. One way to work around this is to use a CSS precompiler (SASS, LESS, etc.) that enables us to nest our styles, working with our example above:</p>
+<div class="highlight"><pre class="chroma"><code class="language-scss" data-lang="scss"><span class="c1">// SASS
+</span><span class="c1"></span><span class="nc">.form</span> <span class="p">{</span>
+
+   <span class="k">&amp;</span><span class="nt">__image</span> <span class="p">{</span>
+
+   <span class="p">}</span>
+
+   <span class="k">&amp;</span><span class="nt">__description</span> <span class="p">{</span>
+
+   <span class="p">}</span>
+
+   <span class="k">&amp;</span><span class="nt">__button</span> <span class="p">{</span>
+
+      <span class="k">&amp;</span><span class="nt">--normal</span> <span class="p">{</span>
+
+      <span class="p">}</span>
+
+      <span class="k">&amp;</span><span class="nt">--dark</span> <span class="p">{</span>
+
+      <span class="p">}</span>
+   <span class="p">}</span>
+
+
+<span class="p">}</span></code></pre></div>
+<p>BEM is my favorite CSS naming scheme and I strongly suggest you give it a try, trust me it will save you a lot of debugging time as your project grows. I hope you found this article useful and keep on hacking.</p>
+]]></content>
+		</item>
+		
+		<item>
+			<title>Deploy Static Websites With Surge.sh</title>
+			<link>http://andresio.com/posts/deploy-static-websites-with-surge.sh/</link>
+			<pubDate>Fri, 09 Nov 2018 14:19:49 +0000</pubDate>
+			
+			<guid>http://andresio.com/posts/deploy-static-websites-with-surge.sh/</guid>
+			<description>So you&amp;rsquo;ve finally managed to add all the finishing touches to your project and now you&amp;rsquo;re eagerly wanting to show it off to the world. You can do so easily within minutes with surge.sh right from the command line.
+Steps: First you need to install surge globally
+$ npm install --global surge  Navigate to your project directory and cd into the folder you want to deploy (public, dist, etc.</description>
+			<content type="html"><![CDATA[
+
+<p>So you&rsquo;ve finally managed to add all the finishing touches to your project and now you&rsquo;re eagerly wanting to show it off to the world. You can do so easily within minutes with <a href="https://surge.sh/">surge.sh</a> right from the command line.</p>
+
+<h2 id="steps">Steps:</h2>
+
+<p>First you need to install surge globally</p>
+
+<pre><code>$ npm install --global surge  
+</code></pre>
+
+<p>Navigate to your project directory and cd  into the folder you want to deploy (public, dist, etc..) just make sure you have a index.html file and run</p>
+
+<pre><code>$ surge 
+</code></pre>
+
+<p>Surge will now prompt you to create an account so you can later redeploy to your domain</p>
+
+<pre><code>Welcome to Surge!
+Please login or create account by entering email and password: 
+   email: youremail.domain.com
+   password: yourPassword
+</code></pre>
+
+<p>Now you will choose a domain. Your domain must end with &ldquo;surge.sh&rdquo; an example would be: myWebsite.surge.sh</p>
+
+<pre><code>project: /myProjectPath
+domain: myWebsite.surge.sh
+</code></pre>
+
+<p>If everything goes well you see something like this:</p>
+
+<pre><code>project: /myProjectPath
+domain: myWebsite.surge.sh
+upload: [====================] 100% eta: 0.0s (34 files, 5413257 bytes)
+   CDN: [====================] 100%
+      IP: [IP address]
+Success! - Published to myWebsite.surge.sh        
+</code></pre>
+
+<p>You can now type your domain in your web browser to see your website running live. If you later made changes you can redeploy by typing:</p>
+
+<pre><code>   surge --domain myWebsite.surge.sh 
+</code></pre>
+
+<p><br ></p>
+
+<p>That&rsquo;s all you have to do, no configurations or messing around with a server. Thanks for reading this post and happy hacking!</p>
+]]></content>
+		</item>
+		
+	</channel>
+</rss>

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>http://andresio.com/tags/api/</loc>
+    <lastmod>2019-01-24T19:51:07+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://andresio.com/</loc>
+    <lastmod>2019-01-24T19:51:07+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://andresio.com/tags/cors/</loc>
+    <lastmod>2019-01-24T19:51:07+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://andresio.com/posts/cors-errors/</loc>
+    <lastmod>2019-01-24T19:51:07+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://andresio.com/tags/errors/</loc>
+    <lastmod>2019-01-24T19:51:07+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://andresio.com/tags/http-headers/</loc>
+    <lastmod>2019-01-24T19:51:07+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://andresio.com/tags/https/</loc>
+    <lastmod>2019-01-24T19:51:07+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://andresio.com/posts/</loc>
+    <lastmod>2019-01-24T19:51:07+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://andresio.com/tags/</loc>
+    <lastmod>2019-01-24T19:51:07+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://andresio.com/tags/design-pattern/</loc>
+    <lastmod>2019-01-08T22:08:31+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://andresio.com/tags/mvc/</loc>
+    <lastmod>2019-01-08T22:08:31+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://andresio.com/posts/model-view-controller/</loc>
+    <lastmod>2019-01-08T22:08:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://andresio.com/tags/array-helper-methods/</loc>
+    <lastmod>2018-12-04T21:56:23+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://andresio.com/posts/array-helper-methods-in-es6/</loc>
+    <lastmod>2018-12-04T21:56:23+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://andresio.com/tags/es6/</loc>
+    <lastmod>2018-12-04T21:56:23+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://andresio.com/tags/execution-context/</loc>
+    <lastmod>2018-11-27T18:26:27+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://andresio.com/tags/javascript/</loc>
+    <lastmod>2018-11-27T18:26:27+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://andresio.com/posts/execution-context-in-javascript/</loc>
+    <lastmod>2018-11-27T18:26:27+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://andresio.com/tags/v8-engine/</loc>
+    <lastmod>2018-11-27T18:26:27+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://andresio.com/posts/bem-architecture-in-css/</loc>
+    <lastmod>2018-11-18T16:53:54+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://andresio.com/posts/deploy-static-websites-with-surge.sh/</loc>
+    <lastmod>2018-11-09T14:19:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://andresio.com/about-me/</loc>
+    <lastmod>2014-04-09T00:00:00+00:00</lastmod>
+  </url>
+  
+</urlset>

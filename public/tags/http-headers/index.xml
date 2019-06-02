@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>HTTP Headers on Andres Alcocer</title>
+    <link>http://andresio.com/tags/http-headers/</link>
+    <description>Recent content in HTTP Headers on Andres Alcocer</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Thu, 24 Jan 2019 19:51:07 +0000</lastBuildDate>
+    
+	<atom:link href="http://andresio.com/tags/http-headers/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>CORS Errors</title>
+      <link>http://andresio.com/posts/cors-errors/</link>
+      <pubDate>Thu, 24 Jan 2019 19:51:07 +0000</pubDate>
+      
+      <guid>http://andresio.com/posts/cors-errors/</guid>
+      <description>Cross-Origin Resource Sharing (CORS) is a security mechanism that is used by the browser to protect itself from API requests created from a different source (a source hosted on another server). For example say you&amp;rsquo;re working on a web application that uses Spotify&amp;rsquo;s API to request some information about an artist, here you have two different origins (sources) trying to exchange some information (your web app and Spotify&amp;rsquo;s servers). In order for this process to be successful the browser needs to know if it is safe to do so, here is where CORS comes in.</description>
+    </item>
+    
+  </channel>
+</rss>

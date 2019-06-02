@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Design Pattern on Andres Alcocer</title>
+    <link>http://andresio.com/tags/design-pattern/</link>
+    <description>Recent content in Design Pattern on Andres Alcocer</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Tue, 08 Jan 2019 22:08:31 +0000</lastBuildDate>
+    
+	<atom:link href="http://andresio.com/tags/design-pattern/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Model View Controller</title>
+      <link>http://andresio.com/posts/model-view-controller/</link>
+      <pubDate>Tue, 08 Jan 2019 22:08:31 +0000</pubDate>
+      
+      <guid>http://andresio.com/posts/model-view-controller/</guid>
+      <description>One of the most well known design pattern is the Model View Controller (MCV). This design pattern is concerned with the separation of logic, data models, and presentation. Making your code more readable and maintainable. Design patterns are useful in the sense that they reduce complexity by providing ready-made abstractions. They also reduce errors by providing details of common solutions. It is always useful to have a few design patterns in your toolbox.</description>
+    </item>
+    
+  </channel>
+</rss>

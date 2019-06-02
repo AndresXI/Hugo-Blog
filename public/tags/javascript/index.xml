@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Javascript on Andres Alcocer</title>
+    <link>http://andresio.com/tags/javascript/</link>
+    <description>Recent content in Javascript on Andres Alcocer</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Tue, 27 Nov 2018 18:26:27 +0000</lastBuildDate>
+    
+	<atom:link href="http://andresio.com/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>The Execution Context in JavaScript</title>
+      <link>http://andresio.com/posts/execution-context-in-javascript/</link>
+      <pubDate>Tue, 27 Nov 2018 18:26:27 +0000</pubDate>
+      
+      <guid>http://andresio.com/posts/execution-context-in-javascript/</guid>
+      <description>JavaScript is a dynamic and versatile language after all it can be used both on the frontend and the backend. You can create web apps, server backends, desktop apps, and mobile apps. That&amp;rsquo;s why JavaScript is one of my favorite languages (it&amp;rsquo;s always on the top 3 &amp;#128515;).
+Although javaScript is pretty amazing it is a special breed on its own. JavaScript does not behave like other programming languages (Java, C++, Python, C# etc.</description>
+    </item>
+    
+  </channel>
+</rss>

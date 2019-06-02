@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ES6 on Andres Alcocer</title>
+    <link>http://andresio.com/tags/es6/</link>
+    <description>Recent content in ES6 on Andres Alcocer</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Tue, 04 Dec 2018 21:56:23 +0000</lastBuildDate>
+    
+	<atom:link href="http://andresio.com/tags/es6/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Array Helper Methods in ES6</title>
+      <link>http://andresio.com/posts/array-helper-methods-in-es6/</link>
+      <pubDate>Tue, 04 Dec 2018 21:56:23 +0000</pubDate>
+      
+      <guid>http://andresio.com/posts/array-helper-methods-in-es6/</guid>
+      <description>To become a front end developer means that you must be proficient with javaScript. Especially with manipulation of data. Having worked with multiple API&amp;rsquo;s myself, most of the time the data I get back is an array of javaScript objects. Thankfully ES6 provides us with a few useful and powerful array helper methods. Most of these array helper methods help with iteration over an array.
+forEach The forEach loop is one of the most commonly used array helper methods in ES6.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Andres Alcocer</title>
+    <link>http://andresio.com/</link>
+    <description>Recent content on Andres Alcocer</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Thu, 24 Jan 2019 19:51:07 +0000</lastBuildDate>
+    
+	<atom:link href="http://andresio.com/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>CORS Errors</title>
+      <link>http://andresio.com/posts/cors-errors/</link>
+      <pubDate>Thu, 24 Jan 2019 19:51:07 +0000</pubDate>
+      
+      <guid>http://andresio.com/posts/cors-errors/</guid>
+      <description>Cross-Origin Resource Sharing (CORS) is a security mechanism that is used by the browser to protect itself from API requests created from a different source (a source hosted on another server). For example say you&amp;rsquo;re working on a web application that uses Spotify&amp;rsquo;s API to request some information about an artist, here you have two different origins (sources) trying to exchange some information (your web app and Spotify&amp;rsquo;s servers). In order for this process to be successful the browser needs to know if it is safe to do so, here is where CORS comes in.</description>
+    </item>
+    
+    <item>
+      <title>Model View Controller</title>
+      <link>http://andresio.com/posts/model-view-controller/</link>
+      <pubDate>Tue, 08 Jan 2019 22:08:31 +0000</pubDate>
+      
+      <guid>http://andresio.com/posts/model-view-controller/</guid>
+      <description>One of the most well known design pattern is the Model View Controller (MCV). This design pattern is concerned with the separation of logic, data models, and presentation. Making your code more readable and maintainable. Design patterns are useful in the sense that they reduce complexity by providing ready-made abstractions. They also reduce errors by providing details of common solutions. It is always useful to have a few design patterns in your toolbox.</description>
+    </item>
+    
+    <item>
+      <title>Array Helper Methods in ES6</title>
+      <link>http://andresio.com/posts/array-helper-methods-in-es6/</link>
+      <pubDate>Tue, 04 Dec 2018 21:56:23 +0000</pubDate>
+      
+      <guid>http://andresio.com/posts/array-helper-methods-in-es6/</guid>
+      <description>To become a front end developer means that you must be proficient with javaScript. Especially with manipulation of data. Having worked with multiple API&amp;rsquo;s myself, most of the time the data I get back is an array of javaScript objects. Thankfully ES6 provides us with a few useful and powerful array helper methods. Most of these array helper methods help with iteration over an array.
+forEach The forEach loop is one of the most commonly used array helper methods in ES6.</description>
+    </item>
+    
+    <item>
+      <title>The Execution Context in JavaScript</title>
+      <link>http://andresio.com/posts/execution-context-in-javascript/</link>
+      <pubDate>Tue, 27 Nov 2018 18:26:27 +0000</pubDate>
+      
+      <guid>http://andresio.com/posts/execution-context-in-javascript/</guid>
+      <description>JavaScript is a dynamic and versatile language after all it can be used both on the frontend and the backend. You can create web apps, server backends, desktop apps, and mobile apps. That&amp;rsquo;s why JavaScript is one of my favorite languages (it&amp;rsquo;s always on the top 3 &amp;#128515;).
+Although javaScript is pretty amazing it is a special breed on its own. JavaScript does not behave like other programming languages (Java, C++, Python, C# etc.</description>
+    </item>
+    
+    <item>
+      <title>BEM Architecture in CSS</title>
+      <link>http://andresio.com/posts/bem-architecture-in-css/</link>
+      <pubDate>Sun, 18 Nov 2018 16:53:54 +0000</pubDate>
+      
+      <guid>http://andresio.com/posts/bem-architecture-in-css/</guid>
+      <description>BEM Notation When you first start to lean CSS, how you organize your code is usually not one of your main priorities, but as you get more comfortable with CSS and start working on big projects you will need a paradigm to organize your styles. There are plenty of paradigms out there but one of my favorites is the BEM (Block, Elements and Modifiers) notation. Is it a very intuitive methodology that keeps your code organized and maintainable.</description>
+    </item>
+    
+    <item>
+      <title>Deploy Static Websites With Surge.sh</title>
+      <link>http://andresio.com/posts/deploy-static-websites-with-surge.sh/</link>
+      <pubDate>Fri, 09 Nov 2018 14:19:49 +0000</pubDate>
+      
+      <guid>http://andresio.com/posts/deploy-static-websites-with-surge.sh/</guid>
+      <description>So you&amp;rsquo;ve finally managed to add all the finishing touches to your project and now you&amp;rsquo;re eagerly wanting to show it off to the world. You can do so easily within minutes with surge.sh right from the command line.
+Steps: First you need to install surge globally
+$ npm install --global surge  Navigate to your project directory and cd into the folder you want to deploy (public, dist, etc.</description>
+    </item>
+    
+    <item>
+      <title>About Me</title>
+      <link>http://andresio.com/about-me/</link>
+      <pubDate>Wed, 09 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://andresio.com/about-me/</guid>
+      <description>Hi, my name is Andres Alcocer and I am a self-taught JavaScript Developer. I am currently living in Durham, North Carolina. I enjoy working in the frontend world of web development but I aim to become a fullstack developer. I am currently learning how to develop react and node applications. The main purpose of this blog is to track my journey of becoming a fullstack developer and to put useful information out there for developers like me.</description>
+    </item>
+    
+  </channel>
+</rss>

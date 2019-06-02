@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Andres Alcocer</title>
+    <link>http://andresio.com/tags/</link>
+    <description>Recent content in Tags on Andres Alcocer</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Thu, 24 Jan 2019 19:51:07 +0000</lastBuildDate>
+    
+	<atom:link href="http://andresio.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>API</title>
+      <link>http://andresio.com/tags/api/</link>
+      <pubDate>Thu, 24 Jan 2019 19:51:07 +0000</pubDate>
+      
+      <guid>http://andresio.com/tags/api/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CORS</title>
+      <link>http://andresio.com/tags/cors/</link>
+      <pubDate>Thu, 24 Jan 2019 19:51:07 +0000</pubDate>
+      
+      <guid>http://andresio.com/tags/cors/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Errors</title>
+      <link>http://andresio.com/tags/errors/</link>
+      <pubDate>Thu, 24 Jan 2019 19:51:07 +0000</pubDate>
+      
+      <guid>http://andresio.com/tags/errors/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>HTTP Headers</title>
+      <link>http://andresio.com/tags/http-headers/</link>
+      <pubDate>Thu, 24 Jan 2019 19:51:07 +0000</pubDate>
+      
+      <guid>http://andresio.com/tags/http-headers/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>HTTPS</title>
+      <link>http://andresio.com/tags/https/</link>
+      <pubDate>Thu, 24 Jan 2019 19:51:07 +0000</pubDate>
+      
+      <guid>http://andresio.com/tags/https/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Design Pattern</title>
+      <link>http://andresio.com/tags/design-pattern/</link>
+      <pubDate>Tue, 08 Jan 2019 22:08:31 +0000</pubDate>
+      
+      <guid>http://andresio.com/tags/design-pattern/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>MVC</title>
+      <link>http://andresio.com/tags/mvc/</link>
+      <pubDate>Tue, 08 Jan 2019 22:08:31 +0000</pubDate>
+      
+      <guid>http://andresio.com/tags/mvc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Array Helper Methods</title>
+      <link>http://andresio.com/tags/array-helper-methods/</link>
+      <pubDate>Tue, 04 Dec 2018 21:56:23 +0000</pubDate>
+      
+      <guid>http://andresio.com/tags/array-helper-methods/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ES6</title>
+      <link>http://andresio.com/tags/es6/</link>
+      <pubDate>Tue, 04 Dec 2018 21:56:23 +0000</pubDate>
+      
+      <guid>http://andresio.com/tags/es6/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Execution Context</title>
+      <link>http://andresio.com/tags/execution-context/</link>
+      <pubDate>Tue, 27 Nov 2018 18:26:27 +0000</pubDate>
+      
+      <guid>http://andresio.com/tags/execution-context/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
